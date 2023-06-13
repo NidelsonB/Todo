@@ -9,6 +9,7 @@ import { EmptyTodos } from '../EmptyTodos';
 import { CreateTodoButton } from '../CreateTodoButton';
 import { TodoForm } from '../TodoForm';
 import { Modal } from '../Modal';
+import { ChangeAlertWithStorageListener } from '../ChangeAlert';
 import { TodoContext } from '../TodoContext';
 
 function AppUI() {
@@ -20,6 +21,7 @@ function AppUI() {
     deleteTodo,
     openModal,
     setOpenModal,
+    sincronizeTodos,
   } = React.useContext(TodoContext);
   
   return (
@@ -58,6 +60,11 @@ function AppUI() {
           <TodoForm />
         </Modal>
       )}
+
+
+      <ChangeAlertWithStorageListener 
+        sincronize={sincronizeTodos}
+      />
     </>
   );
 }
